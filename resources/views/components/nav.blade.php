@@ -22,47 +22,18 @@
                 <ul class="space-y-2 list-none lg:space-y-0 lg:items-center lg:inline-flex">
                     <li>
                         <x-guest-nav-link href="{{route('home')}}" :active="request()->routeIs('home')">
-                            {{ __('Dashboard') }}
+                            {{ __('Início') }}
                         </x-guest-nav-link>
                     </li>
                     <li>
-                        <a href="#"
-                            class="
-                      px-2
-                      lg:px-6
-                      py-6
-                      text-sm
-                      border-b-2 border-transparent
-                      hover:border-blue-600
-                      leading-[22px]
-                      md:px-3
-
-                      hover:text-blue-500
-                    ">
-                           Sobre </span>
-                        </a>
+                        <x-guest-nav-link href="{{route('home')}}" :active="request()->routeIs('about')">
+                            {{ __('Sobre') }}
+                        </x-guest-nav-link>
                     </li>
                     <li>
-                        <a href="#"
-                            class="
-                      px-2
-                      lg:px-6
-                      py-6
-                      text-sm
-                      border-b-2 border-transparent
-                      hover:border-blue-600
-                      leading-[22px]
-                      md:px-3
-                      text-gray-500
-                      hover:text-blue-500
-                    ">
-                            FAQ </a>
-                    </li>
-                    <li>
-                        <a href="https://www.wickedtemplates.com/"
-                            class="">
-                        Roadmap
-                        </a>
+                        <x-guest-nav-link href="{{route('home')}}" :active="request()->routeIs('roadmap')">
+                            {{ __('Roadmap') }}
+                        </x-guest-nav-link>
                     </li>
                 </ul>
             </nav>
