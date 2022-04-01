@@ -1,5 +1,5 @@
 <div>
-    <div class="container w-full max-w-7xl">
+    <div class="fixed top-0 z-50 w-full bg-white shadow">
         <div x-data="{ open: false }"
             class="flex flex-col max-w-screen-xl p-5 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
             <div class="flex flex-row items-center justify-between lg:justify-start">

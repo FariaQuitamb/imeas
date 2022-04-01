@@ -39,10 +39,9 @@
                                     </svg>
                                 </dt>
                                 <dd class="flex-grow ">
-                                    <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600"> Me registar
+                                    <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600"> Registo individual
                                     </h2>
-                                    <p class="text-base leading-relaxed text-gray-400"> Regista-se a faça parte das
-                                        estatística da Igreja de Sião. </p>
+                                    <p class="text-base leading-relaxed text-gray-400">Se apenas és o único membro da sua família que frequenta este templo, use está opção.</p>
                                 </dd>
                             </a>
 
@@ -57,11 +56,9 @@
                                     </svg>
                                 </dt>
                                 <dd class="flex-grow ">
-                                    <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600"> Registar a
-                                        família
+                                    <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600"> Registo familiar
                                     </h2>
-                                    <p class="text-base leading-relaxed text-gray-400">Registe o pai e a mãe e a seguir
-                                        os membros da família.</p>
+                                    <p class="text-base leading-relaxed text-gray-400">Se outros membros da sua família frequentam este templo, use está opção</p>
                                 </dd>
                             </a>
                         </dl>
