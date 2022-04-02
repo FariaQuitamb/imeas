@@ -24,7 +24,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('livewire.member.create');
+        return view('members.create');
     }
 
     /**

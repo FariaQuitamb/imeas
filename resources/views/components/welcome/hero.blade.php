@@ -25,7 +25,7 @@
 
                     <h1
                         class="text-4xl font-bold leading-none tracking-tighter text-neutral-600 md:text-7xl lg:text-5xl">
-                        Eu quero:</h1>
+                        Podes fazer:</h1>
                     <div class="flex-col mt-0 lg:mt-6 max-w-7xl sm:flex">
                         <dl class="grid grid-cols-1 gap-12 md:grid-cols-2">
                             <a href="{{route('member.register')}}"
