@@ -10,22 +10,22 @@
                     <input type="file" wire:model="avatar" id="avatar" class="hidden" style="display: none">
                     <label for="avatar"
                         class="flex justify-center w-auto px-2 py-1 mb-4 transition duration-500 ease-in-out transform border rounded-md cursor-pointer text-slate-200 hover:text-slate-600 text-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-slate-100">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 " fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 " fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                     </label>
                 </div>
             @else
-               <div>
-                <input type="file" wire:model="avatar" id="avatar" class="hidden" style="display: none">
-                <label for="avatar" class="cursor-pointer"> <img src="{{ $avatar->temporaryUrl() }}" alt=""></label>
+                <div>
+                    <input type="file" wire:model="avatar" id="avatar" class="hidden" style="display: none">
+                    <label for="avatar" class="cursor-pointer"> <img src="{{ $avatar->temporaryUrl() }}"
+                            alt=""></label>
                 </div>
             @endif
             @error('avatar')
-            <span class="text-xs text-center text-red-600">{{$message}}</span>
-
+                <span class="text-xs text-center text-red-600">{{ $message }}</span>
             @enderror
         </header>
         <div>
@@ -63,26 +63,34 @@
         <div class="">
             <label for="genre" class="block text-sm font-medium text-neutral-600">Género</label>
             <div class="flex space-x-5">
-                <label for="man" class="block text-sm font-medium text-neutral-600"><input
-                        type="radio" id="man" name="genre" value="M"> Masculino</label>
-                <label for="woman" class="block text-sm font-medium text-neutral-600"><input
-                        id="woman" type="radio" name="genre" value="M"> Feminino</label>
+                <label for="man" class="block text-sm font-medium text-neutral-600"><input type="radio" id="man"
+                        name="genre" value="M"> Masculino</label>
+                <label for="woman" class="block text-sm font-medium text-neutral-600"><input id="woman" type="radio"
+                        name="genre" value="M"> Feminino</label>
             </div>
         </div>
         <div>
-            <label for="father" class="block text-sm font-medium text-neutral-600">Natural de
+            <label class="block text-sm font-medium text-neutral-600">Natural de
             </label>
             <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
                 <div class="mt-1">
-                    <select id="mother" name="mother" type="text"
+                    <select id="province" wire:model="province" type="text"
                         class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
                         <option selected disabled>Província</option>
+                        @foreach ($provinces as $province)
+                            <option value="{{ $province['Id_Provincia'] }}">{{ $province['Nome'] }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="mt-1">
-                    <select id="mother" name="mother" type="text"
+                    <select id="mother" name="mother" {{ $counties ? '' : 'disabled' }} type="text"
                         class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
                         <option selected disabled>Município</option>
+                        @if ($counties)
+                            @foreach ($counties as $county)
+                                <option value="{{ $county['Id_Municipio'] }}">{{ $county['Nome'] }}</option>
+                            @endforeach
+                        @endif
                     </select>
                 </div>
             </div>
