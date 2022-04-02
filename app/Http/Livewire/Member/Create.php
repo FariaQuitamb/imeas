@@ -11,15 +11,36 @@ class Create extends Component
 
     public $avatar;
     public $province;
+    public $name;
+    public $phone;
+    public $fathername;
+    public $mothername;
+    public $birthdate;
+    public $genre;
+    public $county;
 
     public $provinces;
     public $counties;
 
+    protected $rules = [
+        'avatar' => 'image|max:1024*4',
+        'name' => 'required|max:45|min:6',
+        'phone' => 'required|numeric|size:12',
+        'fathername' => 'required',
+        'mothername' => 'required',
+        'birthdate' => 'required',
+        'genre' => 'required|max:1'
+    ];
+
+    protected $validationAttributes = [
+        'fathername' => 'nome do pai',
+        'mothername' => 'nome da mãe',
+        'birthdate' => 'data de nascimento'
+    ];
+
     public function savePersonalInformation()
     {
-        $this->validate([
-            'avatar' => 'image|max:1024*4',
-        ]);
+        $validatedData = $this->validate();
     }
 
     public function getProvices()
