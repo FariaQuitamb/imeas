@@ -4,8 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eada9645e62b70960c5954baee1dd5c0",
+    "content-hash": "07ad2528740775351a051fcd6975e216",
     "packages": [
+        {
+            "name": "akhaled/livewire-sweetalert",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akhled/livewire-sweetalert.git",
+                "reference": "b910c7cec7264d871416063c90140c94c817eb57"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akhled/livewire-sweetalert/zipball/b910c7cec7264d871416063c90140c94c817eb57",
+                "reference": "b910c7cec7264d871416063c90140c94c817eb57",
+                "shasum": ""
+            },
+            "require": {
+                "livewire/livewire": "^2.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.18"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Akhaled\\LivewireSweetalert\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Akhaled\\LivewireSweetalert\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amro Khaled",
+                    "email": "i@akhaled.com",
+                    "homepage": "http://akhaled.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Integeration Sweetalert with Livewire",
+            "support": {
+                "issues": "https://github.com/akhled/livewire-sweetalert/issues",
+                "source": "https://github.com/akhled/livewire-sweetalert/tree/v0.1.1"
+            },
+            "time": "2021-08-05T10:37:40+00:00"
+        },
         {
             "name": "bacon/bacon-qr-code",
             "version": "2.0.7",

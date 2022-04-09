@@ -4,17 +4,20 @@ namespace App\Http\Livewire\Member;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Http;
+use Akhaled\LivewireSweetalert\Toast;
+use App\Models\Member;
 
 class Create extends Component
 {
+    use Toast;
     use WithFileUploads;
 
     public $avatar;
     public $province;
     public $name;
     public $phone;
-    public $fathername;
-    public $mothername;
+    public $father;
+    public $mother;
     public $birthdate;
     public $genre;
     public $county;
@@ -22,25 +25,47 @@ class Create extends Component
     public $provinces;
     public $counties;
 
+    public $memberRegistred;
+
     protected $rules = [
-        'avatar' => 'image|max:1024*4',
+        'avatar' => 'image',
         'name' => 'required|max:45|min:6',
-        'phone' => 'required|numeric|size:12',
-        'fathername' => 'required',
-        'mothername' => 'required',
+        'phone' => 'required|max:12',
+        'father' => 'required',
+        'mother' => 'required',
         'birthdate' => 'required',
-        'genre' => 'required|max:1'
+        'genre' => 'required|max:1',
+        'province' => 'required|numeric',
+        'county' => 'required'
     ];
 
     protected $validationAttributes = [
-        'fathername' => 'nome do pai',
-        'mothername' => 'nome da mãe',
+        'father' => 'nome do pai',
+        'mother' => 'nome da mãe',
         'birthdate' => 'data de nascimento'
     ];
 
     public function savePersonalInformation()
     {
-        $validatedData = $this->validate();
+        $this->validate();
+        $uploaded = $this->avatar->storePubliclyAs('avatars', $this->name);
+
+        $data = [
+            'avatar' => $uploaded,
+            'name' => $this->name,
+            'uid' => strtotime('now'),
+            'phone' => trim($this->phone),
+            'father' => $this->father,
+            'mother' => $this->mother,
+            'birthdate' => $this->birthdate,
+            'genre' => $this->genre,
+            'province' => $this->province,
+            'county' => $this->county
+        ];
+
+        $member = Member::create($data);
+        session(['member_registred' => $member->uid]);
+        $this->toast('Informações pessoais registadas, continue...', 'success', 5000);
     }
 
     public function getProvices()

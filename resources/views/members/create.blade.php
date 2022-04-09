@@ -11,7 +11,11 @@
                 <div class="container relative items-center">
                     <div
                         class="flex flex-col w-full max-w-md p-10 mx-auto transition duration-500 ease-in-out transform bg-white rounded-lg shadow-xl md:mt-0">
-                       <livewire:member.create>
+                        @if(!session('member_registred'))
+                            <livewire:member.create>
+                        @else
+                            <livewire:member.eclesiastic-form>
+                        @endif
                     </div>
                 </div>
             </div>

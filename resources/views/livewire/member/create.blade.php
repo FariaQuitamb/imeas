@@ -50,21 +50,21 @@
 
         {{-- Father name --}}
         <div>
-            <label for="fathaername" class="block text-sm font-medium text-neutral-600">Nome do
+            <label for="fathaer" class="block text-sm font-medium text-neutral-600">Nome do
                 pai</label>
             <input
                 class="block w-full px-5 py-3 mt-2 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-300 apearance-none autoexpand"
-                id="fathername" type="text" wire:model.lazy="fathername" placeholder="Informe o seu nome">
-            <x-assets.input-error for="fathername" message='' />
+                id="father" type="text" wire:model.lazy="father" placeholder="Informe o seu nome">
+            <x-assets.input-error for="father" message='' />
         </div>
 
         <div>
-            <label for="mothername" class="block text-sm font-medium text-neutral-600">Nome da
+            <label for="mother" class="block text-sm font-medium text-neutral-600">Nome da
                 Mãe</label>
             <input
                 class="block w-full px-5 py-3 mt-2 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-300 apearance-none autoexpand"
-                id="mothername" type="text" wire:model.lazy="mothername" placeholder="Informe o seu nome">
-            <x-assets.input-error for="mothername" message='' />
+                id="mother" type="text" wire:model.lazy="mother" placeholder="Informe o seu nome">
+            <x-assets.input-error for="mother" message='' />
         </div>
 
         <div>
@@ -93,7 +93,7 @@
                 <div class="mt-1">
                     <select id="province" wire:model="province" type="text"
                         class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
-                        <option disabled selected>Província</option>
+                        <option  disabled selected>Província</option>
                         @foreach ($provinces as $province)
                             <option value="{{ $province['Id_Provincia'] }}">{{ $province['Nome'] }}</option>
                         @endforeach
@@ -101,15 +101,16 @@
                     <x-assets.input-error for="province" message='' />
                 </div>
                 <div class="mt-1">
-                    <select id="county" name="county" {{ $counties ? '' : 'disabled' }} type="text"
+                    <select id="county" wire:model.lazy="county" {{ $counties ? '' : 'disabled' }} type="text"
                         class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
-
+                        <option selected disabled>Município</option>
                         @if ($counties)
+
                             @foreach ($counties as $county)
                                 <option value="{{ $county['Id_Municipio'] }}">{{ $county['Nome'] }}</option>
                             @endforeach
                         @endif
-                        <option selected disabled>Município</option>
+
                     </select>
                     <x-assets.input-error for="county" message='' />
                 </div>

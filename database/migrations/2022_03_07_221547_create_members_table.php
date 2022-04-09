@@ -14,14 +14,15 @@ return new class extends Migration {
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
+            $table->string('avatar');
             $table->string('name', 45);
-            $table->string('phone', 9);
+            $table->string('phone', 12);
             $table->string('father', 45);
             $table->string('mother', 45);
-            $table->date('birthdate', 10);
+            $table->string('birthdate', 12);
             $table->char('genre', 1);
-            $table->integer('province_id');
-            $table->integer('county_id');
+            $table->integer('province');
+            $table->integer('county');
             $table->timestamps();
         });
     }
