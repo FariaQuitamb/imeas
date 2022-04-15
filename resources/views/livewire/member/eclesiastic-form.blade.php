@@ -36,10 +36,10 @@
                 <label for="fathaer" class="block text-sm font-medium text-neutral-600">Classe</label>
                 <select id="county" wire:model.lazy="county"
                     class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
-                    <option selected disabled>Selecione a sua classe</option>
+                    <option selected>Selecione a sua classe</option>
                     @if ($classes)
                         @foreach ($classes as $classe)
-                            <option value="{{ $classe->id }}">{{ $classe->nome }}</option>
+                            <option value="{{ $classe->id }}">{{ $classe->name }}</option>
                         @endforeach
                     @endif
 
@@ -51,25 +51,24 @@
                 <label for="mother" class="block text-sm font-medium text-neutral-600">Organismo</label>
                 <select id="province" wire:model="province" type="text"
                     class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
-                    <option disabled selected>Organismo</option>
-                    @if ($organismos)
-                        @foreach ($organismos as $organismo)
-                            <option value="{{ $organismo->id }}">{{ $organismo->nome }}</option>
-                        @endforeach
-                    @endif
+                    <option selected >Selecione a seu organismo</option>
+                    @if ($departments)
+                    @foreach ($departments as $department)
+                        <option value="{{ $department->id }}">{{ $department->name }}</option>
+                    @endforeach
+                @endif
                 </select>
                 <x-assets.input-error for="province" message='' />
             </div>
             {{-- Ministeries --}}
             <div>
                 <label for="text" class="block mb-2 text-sm font-medium text-neutral-600">Em quais ministérios se dedicas</label>
-                <label for="coralLouvores" class="block text-sm font-medium text-neutral-600"><input id="coralLouvores" type="checkbox"
-                    wire:model.lazy="genre" value="S"> Coral e Louvores</label>
-                    <label for="coralLouvores" class="block text-sm font-medium text-neutral-600"><input id="coralLouvores" type="checkbox"
-                        wire:model.lazy="genre" value="S"> Evangelismo e Ensino</label>
-                        <label for="coralLouvores" class="block text-sm font-medium text-neutral-600"><input id="coralLouvores" type="checkbox"
-                            wire:model.lazy="genre" value="S"> Oferta e caridade</label>
-                <x-assets.input-error for="birthdate" message='' />
+                @foreach ($ministries as $ministry )
+                <label for="{{$ministry->id}}" class="block mb-2 text-sm font-medium text-neutral-600"><input id="coralLouvores" type="checkbox"
+                    wire:model.lazy="genre" value="{{$ministry->id}}"> {{$ministry->name}}</label>
+                @endforeach
+
+                <x-assets.input-error for="ministries" message='' />
             </div>
 
             <div class="">

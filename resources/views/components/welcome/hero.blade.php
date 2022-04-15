@@ -20,15 +20,27 @@
                 </div>
                 <div
                     class="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
-                    <p class="mb-8 text-base leading-relaxed text-left text-gray-500">Ao fazer este registo auxilias o
-                        Gabinete Pastoral, Organismos e Classes na recolha de dados para melhor tomar as decisões. </p>
+                    {{-- <p class="mb-8 text-base leading-relaxed text-left text-gray-500">Ao fazer este registo auxilias o
+                        Gabinete Pastoral, Organismos e Classes na recolha de dados para melhor tomar as decisões. </p> --}}
 
                     <h1
                         class="text-4xl font-bold leading-none tracking-tighter text-neutral-600 md:text-7xl lg:text-5xl">
                         Podes fazer:</h1>
                     <div class="flex-col mt-0 lg:mt-6 max-w-7xl sm:flex">
                         <dl class="grid grid-cols-1 gap-12 md:grid-cols-2">
-                            <a href="{{route('member.register')}}"
+                            <a href="{{ route('register.continue') }}"
+                                class="inline-block p-4 transition ease-in-out delay-150 rounded-lg hover:border hover:bg-slate-100 ">
+                                <dt
+                                    class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-5 text-blue-600 rounded-full bg-blue-50">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path></svg>
+                                </dt>
+                                <dd class="flex-grow ">
+                                    <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600"> Continuar o meu registo
+                                    </h2>
+                                    <p class="text-base leading-relaxed text-gray-400">Se fez apenas uma etapa de um registo, continue</p>
+                                </dd>
+                            </a>
+                            <a href="{{ route('member.register') }}"
                                 class="inline-block p-4 transition ease-in-out delay-150 rounded-lg hover:border hover:bg-slate-100">
                                 <dt
                                     class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-5 text-blue-600 rounded-full bg-blue-50">
@@ -39,13 +51,15 @@
                                     </svg>
                                 </dt>
                                 <dd class="flex-grow ">
-                                    <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600"> Registo individual
+                                    <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600"> Registo
+                                        individual
                                     </h2>
-                                    <p class="text-base leading-relaxed text-gray-400">Se apenas és o único membro da sua família que frequenta este templo, use está opção.</p>
+                                    <p class="text-base leading-relaxed text-gray-400">Se apenas és o único membro da
+                                        sua família que frequenta este templo, use está opção.</p>
                                 </dd>
                             </a>
 
-                            <a href="{{route('family.register')}}"
+                            <a href="{{ route('family.register') }}"
                                 class="inline-block p-4 transition ease-in-out delay-150 rounded-lg hover:border hover:bg-slate-100 ">
                                 <dt
                                     class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-5 text-blue-600 rounded-full bg-blue-50">
@@ -56,9 +70,11 @@
                                     </svg>
                                 </dt>
                                 <dd class="flex-grow ">
-                                    <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600"> Registo familiar
+                                    <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600"> Registo
+                                        familiar
                                     </h2>
-                                    <p class="text-base leading-relaxed text-gray-400">Se outros membros da sua família frequentam este templo, use está opção</p>
+                                    <p class="text-base leading-relaxed text-gray-400">Se outros membros da sua família
+                                        frequentam este templo, use está opção</p>
                                 </dd>
                             </a>
                         </dl>
