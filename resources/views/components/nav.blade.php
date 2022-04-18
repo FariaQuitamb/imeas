@@ -1,11 +1,11 @@
 <div>
-    <div class="fixed top-0 z-50 w-full bg-white shadow">
+    <div class="fixed top-0 z-50 w-full bg-white">
         <div x-data="{ open: false }"
-            class="flex flex-col max-w-screen-xl p-5 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+            class="flex flex-col max-w-screen-xl mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
             <div class="flex flex-row items-center justify-between lg:justify-start">
                 <a href="{{route('home')}}"
                     class="text-lg font-bold tracking-tighter text-blue-600 transition duration-500 ease-in-out transform tracking-relaxed lg:pr-8">
-                    <x-jet-application-mark class="block w-auto h-9" /> </a>
+                    <x-jet-application-mark class="block w-auto mt-2" /> </a>
                 <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
                     <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8">
                         <path x-show="!open" fill-rule="evenodd"

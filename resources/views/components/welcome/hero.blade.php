@@ -29,7 +29,7 @@
                     <div class="flex-col mt-0 lg:mt-6 max-w-7xl sm:flex">
                         <dl class="grid grid-cols-1 gap-12 md:grid-cols-2">
                             <a href="{{ route('register.continue') }}"
-                                class="inline-block p-4 transition ease-in-out delay-150 rounded-lg hover:border hover:bg-slate-100 ">
+                                class="inline-block p-4 duration-500 ease-in-out transform border rounded-lg ttransition hover:scale-110">
                                 <dt
                                     class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-5 text-blue-600 rounded-full bg-blue-50">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path></svg>
@@ -41,7 +41,7 @@
                                 </dd>
                             </a>
                             <a href="{{ route('member.register') }}"
-                                class="inline-block p-4 transition ease-in-out delay-150 rounded-lg hover:border hover:bg-slate-100">
+                                class="inline-block p-4 transition duration-500 ease-in-out transform border rounded-lg hover:scale-110">
                                 <dt
                                     class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-5 text-blue-600 rounded-full bg-blue-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20"
@@ -60,7 +60,7 @@
                             </a>
 
                             <a href="{{ route('family.register') }}"
-                                class="inline-block p-4 transition ease-in-out delay-150 rounded-lg hover:border hover:bg-slate-100 ">
+                                class="inline-block p-4 transition duration-500 ease-in-out transform border rounded-lg hover:scale-110">
                                 <dt
                                     class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-5 text-blue-600 rounded-full bg-blue-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20"

@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::controller(MemberController::class)->group(function () {
     Route::get('member/register', 'create')->name('member.register');
-    Route::get('register/continue', 'MemberController@continue')->name('register.continue');
+    Route::get('register/continue', 'continue')->name('register.continue');
 });
 
 Route::controller(FamilyController::class)->group(function () {

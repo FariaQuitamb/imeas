@@ -16,13 +16,11 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{asset('js/sweetalert.js')}}"></script>
-
-
     </head>
     <body>
         <div class="font-sans antialiased text-gray-900">
             <x-nav/>
-            <main class="mt-24">
+            <main class="mt-4">
                 {{ $slot }}
             </main>
         </div>

@@ -27,6 +27,11 @@ class MemberController extends Controller
         return view('members.create');
     }
 
+    public function continue()
+    {
+        return view('members.continue');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
