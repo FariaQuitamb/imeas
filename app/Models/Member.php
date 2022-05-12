@@ -20,4 +20,9 @@ class Member extends Model
         'province',
         'county'
     ];
+
+    public function eclesiastic()
+    {
+        return $this->hasOne(Eclesiastic::class);
+    }
 }

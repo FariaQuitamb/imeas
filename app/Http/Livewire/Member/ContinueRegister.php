@@ -17,6 +17,7 @@ class ContinueRegister extends Component
     {
         $this->validate();
         $this->member = Member::whereUid((int)$this->code)->first();
+        to_route('register.continue', $this->member->id);
     }
 
     public function render()

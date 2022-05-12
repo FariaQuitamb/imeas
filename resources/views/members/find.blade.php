@@ -11,7 +11,7 @@
                 <div class="container relative items-center">
                     <div
                         class="flex flex-col w-full max-w-md p-10 duration-500 ease-in-out transform bg-white rounded-lg shadow-xl mx-autotransition md:mt-0">
-                        <livewire:member.eclesiastic-form>
+                        <livewire:member.continue-register>
                     </div>
                 </div>
             </div>
@@ -22,4 +22,5 @@
             </div>
         </div>
     </div>
+
 </x-guest-layout>

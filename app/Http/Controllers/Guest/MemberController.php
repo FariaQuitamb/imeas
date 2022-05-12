@@ -27,7 +27,12 @@ class MemberController extends Controller
         return view('members.create');
     }
 
-    public function continue()
+    public function find()
+    {
+        return view('members.find');
+    }
+
+    public function continue(Member $member)
     {
         return view('members.continue');
     }

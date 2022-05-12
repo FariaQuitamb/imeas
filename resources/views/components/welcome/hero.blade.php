@@ -28,7 +28,7 @@
                         Podes fazer:</h1>
                     <div class="flex-col mt-0 lg:mt-6 max-w-7xl sm:flex">
                         <dl class="grid grid-cols-1 gap-12 md:grid-cols-2">
-                            <a href="{{ route('register.continue') }}"
+                            <a href="{{ route('register.find') }}"
                                 class="inline-block p-4 duration-500 ease-in-out transform border rounded-lg ttransition hover:scale-110">
                                 <dt
                                     class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-5 text-blue-600 rounded-full bg-blue-50">
