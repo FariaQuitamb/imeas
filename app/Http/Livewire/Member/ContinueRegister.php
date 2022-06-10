@@ -17,11 +17,14 @@ class ContinueRegister extends Component
     {
         $this->validate();
         $this->member = Member::whereUid((int)$this->code)->first();
-        to_route('register.continue', $this->member->id);
+        if ($this->member):
+            to_route('register.continue', $this->member->id);
+        endif;
+        // $this->toast('Membro da igreja não encontrado..', 'error', 5000);
     }
 
     public function render()
     {
-        return view('livewire.member.continue-register');
+        return view('livewire.member.continue-register')->with('member', $this->member);
     }
 }

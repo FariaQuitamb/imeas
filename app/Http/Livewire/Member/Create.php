@@ -4,12 +4,10 @@ namespace App\Http\Livewire\Member;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Http;
-use Akhaled\LivewireSweetalert\Toast;
 use App\Models\Member;
 
 class Create extends Component
 {
-    use Toast;
     use WithFileUploads;
 
     public $avatar;
@@ -65,7 +63,7 @@ class Create extends Component
 
         $member = Member::create($data);
         session(['member_registred' => $member->uid]);
-        $this->toast('Informações pessoais registadas, continue...', 'success', 5000);
+        // $this->toast('Informações pessoais registadas, continue...', 'success', 5000);
     }
 
     public function getProvices()

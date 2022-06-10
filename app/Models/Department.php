@@ -4,20 +4,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Classe extends Model
+class Department extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'name', 'slug'
     ];
-    use HasFactory;
 
-    /**
-     * Get all of the eclesiastic for the Classe
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function eclesiastic()
     {
-        return $this->hasMany(Comment::class);
+        return $this->belongsTo(Eclesiastic::class);
     }
 }

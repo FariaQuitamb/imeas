@@ -3,8 +3,9 @@ namespace App\Http\Livewire\Member;
 
 use Livewire\Component;
 use App\Models\Classe;
-use App\Models\Departament;
 use App\Models\Ministry;
+use App\Models\Department;
+use App\Models\Eclesiastic;
 
 class EclesiasticForm extends Component
 {
@@ -13,6 +14,7 @@ class EclesiasticForm extends Component
     public $departments;
     public $ministries;
     public $howBecome;
+    public $member;
 
     // Variables of Eclesiastic Form
     public $classe;
@@ -21,6 +23,15 @@ class EclesiasticForm extends Component
     public $department;
     public $ministry;
     public $baptized;
+
+    protected $rules = [
+        'startat' => ['required', 'integer', ],
+        'how' => 'required',
+        'classe' => 'required',
+        'department' => 'required',
+        'ministry' => 'required',
+        'baptized' => 'required'
+    ];
 
     public function mount()
     {
@@ -31,7 +42,26 @@ class EclesiasticForm extends Component
         ];
         $this->ministries = Ministry::orderBy('name', 'ASC')->get();
         $this->classes = Classe::orderBy('name', 'ASC')->get();
-        $this->departments = Departament::orderBy('name', 'ASC')->get();
+        $this->departments = Department::orderBy('name', 'ASC')->get();
+    }
+
+    public function submit()
+    {
+        $this->validate();
+        $data = [
+            'startat' => $this->startat,
+            'how' => $this->how,
+            'member_id' => $this->member->id,
+            'classe_id' => $this->classe,
+            'department_id' => $this->department,
+            'baptized' => $this->baptized == 'S' ? 1 : 0
+
+        ];
+        // Eclesiastic::create($data);
+        if ($this->member->eclesiastic == null) {
+            $this->member->eclesiastic()->create($data);
+        }
+        dd('Já tem dados eclesiastico');
     }
 
     public function render()

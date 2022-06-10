@@ -1,6 +1,6 @@
 <div>
     <div>
-        <form autocomplete="off" wire:submit.prevent='savePersonalInformation' method="POST" class="space-y-6">
+        <form autocomplete="off" wire:submit.prevent='submit' method="POST" class="space-y-6">
 
             {{-- Start at --}}
             <div>
@@ -8,8 +8,8 @@
                     metodista?</label>
                 <select id="startat" wire:model.lazy="startat"
                     class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
-                    <option selected disabled>Ano de início</option>
-                    @for ($i = date('Y') - 100; $i <= date('Y'); $i++)
+                    <option selected>Ano de início</option>
+                    @for ($i = date('Y'); $i >= date('Y') - 100; $i--)
                         <option value="{{ $i }}">{{ $i }}</option>
                     @endfor
                 </select>
@@ -20,9 +20,9 @@
             <div>
                 <label for="text" class="block mb-2 text-sm font-medium text-neutral-600">Como se tornou membro</label>
                 <div class="flex space-x-5">
-                    @foreach ($howBecome as $how )
+                    @foreach ($howBecome as $key => $how )
                     <label for="{{$how}}" class="block text-sm font-medium text-neutral-600"><input type="radio" id="{{$how}}"
-                        wire:model.lazy="how" value="{{$how}}"> {{$how}}</label>
+                        wire:model.lazy="how" value="{{$key}}"> {{$how}}</label>
                     @endforeach
                 </div>
                 <x-assets.input-error for="how" message='' />
@@ -40,7 +40,6 @@
                             <option value="{{ $classe->id }}">{{ $classe->name }}</option>
                         @endforeach
                     @endif
-
                 </select>
                 <x-assets.input-error for="classe" message='' />
             </div>
@@ -62,8 +61,8 @@
             <div>
                 <label for="text" class="block mb-2 text-sm font-medium text-neutral-600">Em quais ministérios se dedicas</label>
                 @foreach ($ministries as $ministry )
-                <label for="ministry.{{$ministry->id}}" class="block mb-2 text-sm font-medium text-neutral-600"><input id="coralLouvores" type="checkbox"
-                    wire:model.lazy="ministry.{{$ministry->id}}" value="{{$ministry->id}}"> {{$ministry->name}}</label>
+                <label for="ministry.{{$ministry->id}}" class="block mb-2 text-sm font-medium text-neutral-600"><input id="ministry.{{$ministry->id}}" type="checkbox"
+                    wire:model.lazy="ministry.{{$ministry}}"  value="{{$ministry->id}}"> {{$ministry->name}}</label>
                 @endforeach
                 <x-assets.input-error for="ministry" message='' />
             </div>

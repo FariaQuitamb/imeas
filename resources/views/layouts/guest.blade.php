@@ -25,6 +25,6 @@
             </main>
         </div>
         @livewireScripts
-        @livewireSweetalertScripts
+        {{-- @livewireSweetalertScripts --}}
     </body>
 </html>

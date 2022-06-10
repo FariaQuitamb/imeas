@@ -11,14 +11,14 @@
                 <div class="container relative items-center">
                     <div
                         class="flex flex-col w-full max-w-md p-10 duration-500 ease-in-out transform bg-white rounded-lg shadow-xl mx-autotransition md:mt-0">
-                        <livewire:member.eclesiastic-form :member="$member">
+                        <livewire:member.contact-form :member="$member">
                     </div>
                 </div>
             </div>
             <div
                 class="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
                 <h1 class="mb-4 uppercase text-medium ">Registe as seguintes informações</h1>
-                <x-register-features></x-register-features>
+                <x-register-features/>
             </div>
         </div>
     </div>

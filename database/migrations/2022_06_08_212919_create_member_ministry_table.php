@@ -12,14 +12,10 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('eclesiastics', function (Blueprint $table) {
+        Schema::create('member_ministry', function (Blueprint $table) {
             $table->id();
-            $table->integer('startat');
-            $table->integer('how');
-            $table->foreignId('member_id')->constrained('members');
-            $table->foreignId('classe_id')->constrained('classes');
-            $table->foreignId('department_id')->constrained('departments');
-            $table->integer('baptized');
+            $table->foreignId('member_id');
+            $table->foreignId('ministry_id');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('eclesiastics');
+        Schema::dropIfExists('member_ministry');
     }
 };
