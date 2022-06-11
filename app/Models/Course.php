@@ -11,4 +11,9 @@ class Course extends Model
     protected $fillable = [
         'name', 'slug'
     ];
+
+    public function personals()
+    {
+        return $this->belongsToMany(Personal::class, 'course_personal');
+    }
 }

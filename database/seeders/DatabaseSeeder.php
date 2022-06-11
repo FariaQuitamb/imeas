@@ -2,8 +2,11 @@
 namespace Database\Seeders;
 
 use App\Models\Classe;
+use App\Models\Course;
+use App\Models\Degree;
 use App\Models\Department;
 use App\Models\Ministry;
+use App\Models\Occupation;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -98,6 +101,70 @@ class DatabaseSeeder extends Seeder
                                 'slug' => Str::slug('Património'),
                                 'founded_in' => date('Y')
                             ],
+                        ))->create();
+
+        Degree::factory()->count(6)
+                        ->state(new Sequence(
+                            [
+                                'name' => 'Ensino de base',
+                                'slug' => Str::slug('Ensino de base'),
+                            ],
+                            [
+                                'name' => 'Técnico Médio',
+                                'slug' => Str::slug('Técnico Médio'),
+                            ],
+                            [
+                                'name' => 'Licenciado',
+                                'slug' => Str::slug('Licenciado'),
+                            ],
+                            [
+                                'name' => 'Mestre',
+                                'slug' => Str::slug('Mestre'),
+                            ],
+                            [
+                                'name' => 'Doutor',
+                                'slug' => Str::slug('Doutor'),
+                            ],
+                            [
+                                'name' => 'Nenhum',
+                                'slug' => Str::slug('Nenhum'),
+                            ],
+                        ))->create();
+
+        Occupation::factory()->count(3)
+                        ->state(new Sequence(
+                            [
+                                'name' => 'Estudante',
+                                'slug' => Str::slug('Estudante'),
+                            ],
+                            [
+                                'name' => 'Trabalhador',
+                                'slug' => Str::slug('Trabalhador'),
+                            ],
+                            [
+                                'name' => 'Nenhum',
+                                'slug' => Str::slug('Nenhum'),
+                            ]
+                        ))->create();
+
+        Course::factory()->count(3)
+                        ->state(new Sequence(
+                            [
+                                'name' => 'Secretaria',
+                                'slug' => Str::slug('Secretaria'),
+                            ],
+                            [
+                                'name' => 'Informática',
+                                'slug' => Str::slug('Informática'),
+                            ],
+                            [
+                                'name' => 'Pedagócio',
+                                'slug' => Str::slug('Pedagócio'),
+                            ],
+                            [
+                                'name' => 'Medicina',
+                                'slug' => Str::slug('Medicina'),
+                            ]
                         ))->create();
     }
 

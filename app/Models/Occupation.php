@@ -11,4 +11,9 @@ class Occupation extends Model
     protected $fillable = [
         'name', 'slug'
     ];
+
+    public function personals()
+    {
+        return $this->belongsToMany(Personal::class, 'occupation_personal');
+    }
 }
