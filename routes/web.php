@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\WelcomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Guest\MemberController;
 use App\Http\Controllers\Guest\FamilyController;
@@ -29,6 +30,6 @@ Route::controller(FamilyController::class)->group(function () {
     Route::get('family/register', 'create')->name('family.register');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->controller(WelcomeController::class)->group(function () {
+    Route::get('/dashboard', 'welcome')->name('dashboard');
+});
