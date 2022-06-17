@@ -62,7 +62,8 @@ class Create extends Component
         ];
 
         $member = Member::create($data);
-        session(['member_registred' => $member->uid]);
+        to_route('register.continue')->with('member', $member->id);
+        // session(['member_registred' => $member->uid]);
         // $this->toast('Informações pessoais registadas, continue...', 'success', 5000);
     }
 

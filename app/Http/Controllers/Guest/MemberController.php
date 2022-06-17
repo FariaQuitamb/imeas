@@ -37,7 +37,7 @@ class MemberController extends Controller
         if (!$member->eclesiastic) {
             return view('members.continue')->with('member', $member);
         }
-        return view('members.contact')->with('member', $member);
+        return view('members.contact')->with('member', $member->id);
     }
 
     /**

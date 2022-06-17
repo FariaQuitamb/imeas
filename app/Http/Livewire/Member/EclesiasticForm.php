@@ -25,7 +25,7 @@ class EclesiasticForm extends Component
     public $baptized;
 
     protected $rules = [
-        'startat' => ['required', 'integer', ],
+        'startat' => ['required', 'integer'],
         'how' => 'required',
         'classe' => 'required',
         'department' => 'required',
@@ -57,11 +57,12 @@ class EclesiasticForm extends Component
             'baptized' => $this->baptized == 'S' ? 1 : 0
 
         ];
-        // Eclesiastic::create($data);
+
         if ($this->member->eclesiastic == null) {
             $this->member->eclesiastic()->create($data);
+            to_route('register.continue', $this->member->id);
         }
-        dd('Já tem dados eclesiastico');
+        to_route('register.continue', $this->member->id);
     }
 
     public function render()
