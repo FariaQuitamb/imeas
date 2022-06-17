@@ -29,6 +29,6 @@ class Eclesiastic extends Model
 
     public function department()
     {
-        return $this->hasOne(Departament::class, 'department_id');
+        return $this->hasOne(Department::class, 'department_id');
     }
 }
