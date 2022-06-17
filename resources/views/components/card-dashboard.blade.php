@@ -1,8 +1,9 @@
-<div class="flex flex-col p-4 overflow-hidden bg-white rounded-md cursor-pointer">
+
+<div class="flex flex-col p-4 overflow-hidden transition duration-500 ease-in-out transform bg-white rounded-md cursor-pointer hover:scale-110">
     <a href="" class="">
         <span
             class="inline-block px-2 py-1 mb-4 text-xs font-semibold text-white rounded-md content bg-emerald-500">
-            12 registos</span>
+            </span>
     </a>
     <div class="flex flex-col justify-between flex-1">
         <div class="flex mb-1 text-gray-500">

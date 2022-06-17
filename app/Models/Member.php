@@ -21,6 +21,8 @@ class Member extends Model
         'county'
     ];
 
+    protected $dates = ['created_at', 'updated_at'];
+
     public function eclesiastic()
     {
         return $this->hasOne(Eclesiastic::class);
