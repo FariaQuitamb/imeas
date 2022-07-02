@@ -12,8 +12,8 @@ class Department extends Model
         'name', 'slug'
     ];
 
-    public function eclesiastic()
+    public function eclesiastics()
     {
-        return $this->belongsTo(Eclesiastic::class);
+        return $this->hasMany(Eclesiastic::class);
     }
 }

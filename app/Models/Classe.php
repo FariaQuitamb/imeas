@@ -18,6 +18,6 @@ class Classe extends Model
      */
     public function eclesiastic()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Eclesiastic::class);
     }
 }

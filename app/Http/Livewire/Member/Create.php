@@ -5,6 +5,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Http;
 use App\Models\Member;
+use Illuminate\Support\Facades\Cache;
 
 class Create extends Component
 {
@@ -62,25 +63,33 @@ class Create extends Component
         ];
 
         $member = Member::create($data);
-        to_route('register.continue')->with('member', $member->id);
+        to_route('register.continue', $member->id);
         // session(['member_registred' => $member->uid]);
         // $this->toast('Informações pessoais registadas, continue...', 'success', 5000);
     }
 
     public function getProvices()
     {
-        $response = Http::get('https://www.vacina.gov.ao/services/api/localization/province');
-        if ($response->ok()) {
-            return $response->json();
-        }
+        $provinces = Cache::rememberForever('provinces', function () {
+            $response = Http::get('https://www.vacina.gov.ao/services/api/localization/province');
+            if ($response->ok()) {
+                return $response->json();
+            }
+        });
+
+        dd($provinces) ;
     }
 
     public function getCounties($province)
     {
-        $response = Http::get('https://www.vacina.gov.ao/services/api/localization/province/' . $province . '/county');
-        if ($response->ok()) {
-            return $response->json();
-        }
+
+        $counties = Cache::rememberForever('counties', function (){
+            $response = Http::get('https://www.vacina.gov.ao/services/api/localization/province/' . $province . '/county');
+            if ($response->ok()) {
+                return $response->json();
+            }
+        });
+        return $counties
     }
 
     public function mount()
