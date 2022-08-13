@@ -77,19 +77,18 @@ class Create extends Component
             }
         });
 
-        dd($provinces) ;
+        return $provinces;
     }
 
     public function getCounties($province)
     {
-
-        $counties = Cache::rememberForever('counties', function (){
+        $counties = Cache::rememberForever('counties', function () {
             $response = Http::get('https://www.vacina.gov.ao/services/api/localization/province/' . $province . '/county');
             if ($response->ok()) {
                 return $response->json();
             }
         });
-        return $counties
+        return $counties;
     }
 
     public function mount()
