@@ -4,11 +4,9 @@
     <div>
         <div>
             <form autocomplete="off" wire:submit.prevent='submit' method="POST" class="space-y-6">
-
-
                 {{-- Occupations --}}
                 <div>
-                    <label for="text" class="block mb-2 text-sm font-medium text-neutral-600">Qual é a seua ocupação</label>
+                    <label for="text" class="block mb-2 text-sm font-medium text-neutral-600">Qual é a sua ocupação</label>
                     <div class="flex space-x-5">
                         @foreach ($occupations as $occupation)
                         <label for="occupation.{{$occupation->id}}" class="block text-sm font-medium text-neutral-600">
@@ -37,15 +35,15 @@
 
                {{-- Courses --}}
                <div>
-                <label for="text" class="block mb-2 text-sm font-medium text-neutral-600">Qual é a seua ocupação</label>
+                <label for="text" class="block mb-2 text-sm font-medium text-neutral-600">Qual é a profissão</label>
                 <div class="flex space-x-5">
                     @foreach ($courses as $course)
                     <label for="course.{{$course->id}}" class="block text-sm font-medium text-neutral-600">
-                        <input type="checkbox" id="course.{{$course->id}}"
-                        wire:model.lazy="course.{{$course}}" value="{{$course->id}}"> {{$course->name}}</label>
+                        <input type="radio" id="course.{{$course->id}}"
+                        wire:model.lazy="work" value="{{$course->id}}"> {{$course->name}}</label>
                     @endforeach
                 </div>
-                <x-assets.input-error for="course" message='' />
+                <x-assets.input-error for="work" message='' />
 
             </div>
 

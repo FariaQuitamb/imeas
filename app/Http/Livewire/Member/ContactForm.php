@@ -3,6 +3,7 @@ namespace App\Http\Livewire\Member;
 
 use App\Models\Course;
 use App\Models\Degree;
+use App\Models\Member;
 use App\Models\Occupation;
 use Livewire\Component;
 
@@ -11,6 +12,7 @@ class ContactForm extends Component
     public $occupations;
     public $courses;
     public $degrees;
+    public $member;
 
     public $occupation;
     public $course;
@@ -25,7 +27,7 @@ class ContactForm extends Component
     public function submit()
     {
         $data = $this->validate();
-        dd($data);
+        $member = Member::findOrFail($this->member);
     }
 
     public function mount()
