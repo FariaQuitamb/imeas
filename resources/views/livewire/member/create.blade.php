@@ -94,9 +94,9 @@
                     <select id="province" wire:model="province" type="text"
                         class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
                         <option  disabled selected>Província</option>
-                        {{-- @foreach ($provinces as $province)
+                        @foreach ($provinces as $province)
                             <option value="{{ $province['Id_Provincia'] }}">{{ $province['Nome'] }}</option>
-                        @endforeach --}}
+                        @endforeach
                     </select>
                     <x-assets.input-error for="province" message='' />
                 </div>

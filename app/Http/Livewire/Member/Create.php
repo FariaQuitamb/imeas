@@ -64,29 +64,25 @@ class Create extends Component
 
         $member = Member::create($data);
         to_route('register.continue', $member->id);
-        // session(['member_registred' => $member->uid]);
-        // $this->toast('Informações pessoais registadas, continue...', 'success', 5000);
+        session(['member_registred' => $member->uid]);
+        $this->toast('Informações pessoais registadas, continue...', 'success', 5000);
     }
 
     public function getProvices()
     {
-        // $provinces = Cache::rememberForever('provinces', function () {
-
-        // });
-
         $response = Http::withToken(env('REDIV_TOKEN'))->get(env('REDIV_URL') . 'preload');
         if ($response->ok()) {
             $body = $response->json();
             dd($body);
         }
 
-        // return $provinces;
+        return $provinces;
     }
 
     public function getCounties($province)
     {
         $counties = Cache::rememberForever('counties', function () {
-            $response = Http::get('http://34.135.148.68/v5/localization/province/' . $province . '/county');
+            $response = Http::get(env('REDIV_URL ') . $province . '/county');
             if ($response->ok()) {
                 return $response->json_decode();
             }
