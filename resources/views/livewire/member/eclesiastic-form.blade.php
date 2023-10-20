@@ -1,12 +1,12 @@
 <div>
     <div>
-        <form autocomplete="off" wire:submit.prevent='submit' method="POST" class="space-y-6">
+        <form autocomplete="off" wire:submit='submit' method="POST" class="space-y-6">
 
             {{-- Start at --}}
             <div>
                 <label for="text" class="block text-sm font-medium text-neutral-600">Em que ano se torno
                     metodista?</label>
-                <select id="startat" wire:model.lazy="startat"
+                <select id="startat" wire:model.blur="startat"
                     class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
                     <option selected>Ano de início</option>
                     @for ($i = date('Y'); $i >= date('Y') - 100; $i--)
@@ -22,7 +22,7 @@
                 <div class="flex space-x-5">
                     @foreach ($howBecome as $key => $how )
                     <label for="{{$how}}" class="block text-sm font-medium text-neutral-600"><input type="radio" id="{{$how}}"
-                        wire:model.lazy="how" value="{{$key}}"> {{$how}}</label>
+                        wire:model.blur="how" value="{{$key}}"> {{$how}}</label>
                     @endforeach
                 </div>
                 <x-assets.input-error for="how" message='' />
@@ -32,7 +32,7 @@
             {{-- Classe --}}
             <div>
                 <label for="fathaer" class="block text-sm font-medium text-neutral-600">Classe</label>
-                <select id="classe" wire:model.lazy="classe"
+                <select id="classe" wire:model.blur="classe"
                     class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
                     <option selected>Selecione a sua classe</option>
                     @if ($classes)
@@ -62,7 +62,7 @@
                 <label for="text" class="block mb-2 text-sm font-medium text-neutral-600">Em quais ministérios se dedicas</label>
                 @foreach ($ministries as $ministry )
                 <label for="ministry.{{$ministry->id}}" class="block mb-2 text-sm font-medium text-neutral-600"><input id="ministry.{{$ministry->id}}" type="checkbox"
-                    wire:model.lazy="ministry.{{$ministry}}"  value="{{$ministry->id}}"> {{$ministry->name}}</label>
+                    wire:model.blur="ministry.{{$ministry}}"  value="{{$ministry->id}}"> {{$ministry->name}}</label>
                 @endforeach
                 <x-assets.input-error for="ministry" message='' />
             </div>
@@ -71,9 +71,9 @@
                 <label for="baptized" class="block text-sm font-medium text-neutral-600">Baptizado?</label>
                 <div class="flex space-x-5">
                     <label for="man" class="block text-sm font-medium text-neutral-600"><input type="radio" id="man"
-                            wire:model.lazy="baptized" value="S"> Sim</label>
+                            wire:model.blur="baptized" value="S"> Sim</label>
                     <label for="woman" class="block text-sm font-medium text-neutral-600"><input id="woman" type="radio"
-                            wire:model.lazy="baptized" value="N"> Não</label>
+                            wire:model.blur="baptized" value="N"> Não</label>
                 </div>
                 <x-assets.input-error for="baptized" message=''/>
             </div>

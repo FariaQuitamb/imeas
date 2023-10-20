@@ -1,5 +1,5 @@
 <div>
-    <form autocomplete="off" wire:submit.prevent='savePersonalInformation' method="POST" class="space-y-6">
+    <form autocomplete="off" wire:submit='savePersonalInformation' method="POST" class="space-y-6">
         <header
             class="flex flex-col items-center justify-center w-56 mx-auto text-base transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg text-slate-500 focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2">
             @if (!$avatar)
@@ -32,7 +32,7 @@
                 completo </label>
             <input
                 class="block w-full px-5 py-3 mt-2 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-300 apearance-none autoexpand"
-                id="fullname" autocomplete="false" type="text" wire:model.lazy="name" placeholder="Informe o seu nome">
+                id="fullname" autocomplete="false" type="text" wire:model.blur="name" placeholder="Informe o seu nome">
             <x-assets.input-error for="name" message='' />
 
         </div>
@@ -42,7 +42,7 @@
             <label for="text" class="block text-sm font-medium text-neutral-600">Telefone</label>
             <input x-data x-mask.blocks="[3, 2, 2, 2]" maxlength="12"
                 class="block w-full px-5 py-3 mt-2 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-300 apearance-none autoexpand"
-                id="fullname" autocomplete="false" type="text" wire:model.lazy="phone"
+                id="fullname" autocomplete="false" type="text" wire:model.blur="phone"
                 placeholder="Informe o número do telemóvel">
             <x-assets.input-error for="phone" message='' />
 
@@ -54,7 +54,7 @@
                 pai</label>
             <input
                 class="block w-full px-5 py-3 mt-2 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-300 apearance-none autoexpand"
-                id="father" type="text" wire:model.lazy="father" placeholder="Informe o seu nome">
+                id="father" type="text" wire:model.blur="father" placeholder="Informe o seu nome">
             <x-assets.input-error for="father" message='' />
         </div>
 
@@ -63,7 +63,7 @@
                 Mãe</label>
             <input
                 class="block w-full px-5 py-3 mt-2 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-300 apearance-none autoexpand"
-                id="mother" type="text" wire:model.lazy="mother" placeholder="Informe o seu nome">
+                id="mother" type="text" wire:model.blur="mother" placeholder="Informe o seu nome">
             <x-assets.input-error for="mother" message='' />
         </div>
 
@@ -72,7 +72,7 @@
                 Nascimento</label>
             <input x-data x-mask.date
                 class="block w-full px-5 py-3 mt-2 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg datepicker text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-300 apearance-none autoexpand"
-                wire:model.lazy="birthdate" placeholder="Informe a sua data de nascimento">
+                wire:model.blur="birthdate" placeholder="Informe a sua data de nascimento">
             <x-assets.input-error for="birthdate" message='' />
         </div>
 
@@ -80,9 +80,9 @@
             <label for="genre" class="block text-sm font-medium text-neutral-600">Género</label>
             <div class="flex space-x-5">
                 <label for="man" class="block text-sm font-medium text-neutral-600"><input type="radio" id="man"
-                        wire:model.lazy="genre" value="M"> Masculino</label>
+                        wire:model.blur="genre" value="M"> Masculino</label>
                 <label for="woman" class="block text-sm font-medium text-neutral-600"><input id="woman" type="radio"
-                        wire:model.lazy="genre" value="F"> Feminino</label>
+                        wire:model.blur="genre" value="F"> Feminino</label>
             </div>
             <x-assets.input-error for="genre" message='' />
         </div>
@@ -101,7 +101,7 @@
                     <x-assets.input-error for="province" message='' />
                 </div>
                 <div class="mt-1">
-                    <select id="county" wire:model.lazy="county" {{ $counties ? '' : 'disabled' }} type="text"
+                    <select id="county" wire:model.blur="county" {{ $counties ? '' : 'disabled' }} type="text"
                         class="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-gray-100 border border-transparent rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
                         <option selected disabled>Município</option>
                         @if ($counties)

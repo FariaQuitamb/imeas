@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Livewire\Member;
+namespace App\Livewire\Member;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;

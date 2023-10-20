@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Livewire\Member;
+namespace App\Livewire\Member;
 
 use App\Models\Member;
 use Livewire\Component;

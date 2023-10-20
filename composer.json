@@ -11,7 +11,7 @@
         "laravel/jetstream": "^2.6",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
-        "livewire/livewire": "^2.10",
+        "livewire/livewire": "^3.0",
         "sentry/sentry-laravel": "^2.13"
     },
     "require-dev": {
@@ -58,7 +58,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
